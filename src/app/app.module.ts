@@ -20,6 +20,7 @@ import { ArticulosComponent } from "./components/articulos/articulos.component";
 import { ArticulosFamiliasComponent } from "./components/articulos-familias/articulos-familias.component";
 import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.component";
 import { MateriasComponent } from './components/materias/materias.component';
+import { MateriasSService } from './services/materias-s.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { MateriasComponent } from './components/materias/materias.component';
       { path: '', redirectTo: '/inicio', pathMatch: 'full' },
       { path: 'inicio', component: InicioComponent },
       { path: 'articulos', component: ArticulosComponent },
-      { path: 'articulosfamilias', component: ArticulosFamiliasComponent }
+      { path: 'articulosfamilias', component: ArticulosFamiliasComponent },
+      { path: 'materias', component: MateriasComponent }      
+      
     ]),
     NgbPaginationModule,
     NgbModalModule,
@@ -47,7 +50,7 @@ import { MateriasComponent } from './components/materias/materias.component';
   entryComponents: [ModalDialogComponent],
   providers: [
      {provide: APP_BASE_HREF, useValue : '/' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true, providers: [MateriasSService] }
   ],
   bootstrap: [AppComponent]
 })
