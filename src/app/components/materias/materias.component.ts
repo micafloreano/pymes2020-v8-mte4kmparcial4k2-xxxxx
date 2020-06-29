@@ -63,9 +63,9 @@ export class MateriasComponent implements OnInit {
     itemCopy.IdPresupuesto = 0;
     this.MateriasSService.post(itemCopy).subscribe((res: any) => {
         this.getMateria();
+        this.submitted = false;
         this.Volver();
-
-     });
+     })
     }
   
 

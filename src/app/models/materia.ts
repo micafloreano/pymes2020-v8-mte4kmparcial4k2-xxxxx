@@ -1,6 +1,6 @@
 export class Materia {
   IdMateria: number;
-  MateriaAnio: Date;
+  MateriaAnio: number;
   MateriaNombre: string;
 }
 
