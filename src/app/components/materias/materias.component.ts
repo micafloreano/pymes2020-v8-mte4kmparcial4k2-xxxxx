@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MateriasSService} from '../../services/Materias-s.service'
+import { MateriasSService} from '../../services/materias-s.service'
 import {Materia} from '../../models/Materia'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalDialogService } from "../../services/modal-dialog.service";
@@ -28,7 +28,7 @@ export class MateriasComponent implements OnInit {
         this.FormReg = this.formBuilder.group({
          IdMateria:[0],
          MateriaNombre: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-         MateriaAnio: ['',[Validators.required, Validators.pattern("[0-9]{1,7}")]],
+         MateriaAnio: ['',[Validators.required, Validators.pattern("[0-9]{4}")]],
     });
   }
 
@@ -47,7 +47,7 @@ export class MateriasComponent implements OnInit {
   }
 
   Grabar() {
-    this.submitted = true;
+    //this.submitted = true;
     // verificar que los validadores esten OK
      if (this.FormReg.invalid)
      {
